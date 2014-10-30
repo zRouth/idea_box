@@ -1,0 +1,12 @@
+= idea.title
+(#{idea.id})
+%br/
+= idea.description
+%br  
+= idea.resource
+%form{:action => "/#{idea.id}/like", :method => "POST", :style => "display: inline"}
+  %input{:type => "submit", :value => "+"}/
+%a{:href => "/#{idea.id}/edit"} Edit
+%form{:action => "/#{idea.id}", :method => "POST"}
+  %input{:name => "_method", :type => "hidden", :value => "DELETE"}
+    %input{:type => "submit", :value => "delete"}/

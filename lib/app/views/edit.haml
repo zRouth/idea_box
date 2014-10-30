@@ -1,0 +1,18 @@
+%h1 IdeaBox
+%form{:action => "/#{idea.id}", :method => "POST", :enctype => "multipart/form-data"}
+  %p
+    - if idea.id
+      Edit your Idea:
+    - else
+      Your Idea:
+  - if idea.id
+    %input{:name => "_method", :type => "hidden", :value => "PUT"}/
+  %input{:name => "idea[title]", :type => "text", :value => idea.title}/
+  %br/
+  %textarea{:name => "idea[description]"}= idea.description
+  %br/
+  %textarea{:name => "idea[resource]"}= idea.resource
+  %br/
+  %input{:name => "idea[image]", :type => "file"}
+  %br/
+  %input{:type => "submit"}/
